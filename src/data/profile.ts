@@ -9,5 +9,6 @@ export const profile: ProfileData = {
   location: "Kozhikode, Kerala, India",
   github: "https://github.com/abhinanduk12-ui",
   linkedin: "https://linkedin.com/in/abhinand-uk-961092323",
+  instagram: "https://www.instagram.com/abh.1____?stkn=ejdwam5zZnd0MW9s",
   resume: "/resume.pdf"
 };

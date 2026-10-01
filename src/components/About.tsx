@@ -98,7 +98,8 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="glass p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group"
+                whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
+                className="glass p-6 rounded-xl hover:bg-white/10 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 group cursor-default"
               >
                 <div className="flex flex-col items-center text-center space-y-3">
                   <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg text-blue-400 group-hover:scale-110 transition-transform duration-300">

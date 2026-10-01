@@ -32,7 +32,8 @@ const Education = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass rounded-xl p-8 md:p-10 hover:bg-white/10 transition-all duration-300"
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="glass rounded-xl p-8 md:p-10 hover:bg-white/10 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300"
           >
             <div className="flex items-start space-x-4 mb-6">
               <div className="p-4 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl text-blue-400 flex-shrink-0">

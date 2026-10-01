@@ -36,7 +36,8 @@ const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="glass rounded-xl p-6 hover:bg-white/10 transition-all duration-300 group"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="glass rounded-xl p-6 hover:bg-white/10 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 group"
             >
               <h3 className="text-xl font-semibold mb-4 text-gray-200 group-hover:text-gradient transition-all duration-300">
                 {category.category}
@@ -51,7 +52,8 @@ const Skills = () => {
                       duration: 0.3,
                       delay: categoryIndex * 0.1 + skillIndex * 0.05
                     }}
-                    className="px-3 py-1.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg text-sm text-gray-300 hover:border-blue-500/50 hover:from-blue-500/20 hover:to-purple-500/20 transition-all duration-200"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="px-3 py-1.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg text-sm text-gray-300 hover:border-blue-500/50 hover:from-blue-500/20 hover:to-purple-500/20 transition-all duration-200 cursor-default"
                   >
                     {skill.name}
                   </motion.span>

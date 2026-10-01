@@ -58,5 +58,33 @@ export const projects: Project[] = [
     ],
     githubUrl: '', // TODO: Add your GitHub repository URL
     isFeatured: false
+  },
+  {
+    id: 'supermarket-navigator',
+    title: 'Supermarket 2D Navigator',
+    category: 'AI / Data Science',
+    description: 'An indoor supermarket navigation system with interactive product search and shortest-path routing.',
+    longDescription: 'Created an indoor supermarket navigation system with interactive product search and real-time shortest-path routing. Applied Dijkstra\'s algorithm across a multi-aisle supermarket layout and built REST APIs that drive route optimization and help reduce manual product search time.',
+    features: [
+      'Interactive product search functionality',
+      'Product location identification',
+      'Supermarket graph representation',
+      'Dijkstra shortest-path calculation',
+      'REST API for route optimization',
+      'Interactive SVG supermarket map',
+      'Route visualization and navigation',
+      'Real-time path updates'
+    ],
+    technologies: [
+      'Python',
+      'Flask',
+      'JavaScript',
+      'HTML',
+      'CSS',
+      'SVG',
+      'REST API',
+      'Dijkstra\'s Algorithm'
+    ],
+    isFeatured: false
   }
 ];

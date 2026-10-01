@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { Mail, ArrowDown, ExternalLink, Sparkles } from 'lucide-react';
 import { profile } from '../data/profile';
 
@@ -70,24 +70,28 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <button
+              <motion.button
                 onClick={scrollToProjects}
-                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200 flex items-center justify-center space-x-2 group"
+                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200 flex items-center justify-center space-x-2 group relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <span>View Projects</span>
-                <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform duration-200" />
-              </button>
+                <span className="relative z-10">View Projects</span>
+                <ArrowDown size={18} className="relative z-10 group-hover:translate-y-1 transition-transform duration-200" />
+              </motion.button>
               {profile.resume && (
-                <a
+                <motion.a
                   href={profile.resume}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 glass rounded-lg text-white font-medium hover:bg-white/10 transition-all duration-200 flex items-center justify-center space-x-2"
+                  className="px-8 py-3 glass rounded-lg text-white font-medium hover:bg-white/10 transition-all duration-200 flex items-center justify-center space-x-2 group"
                   aria-label="View resume in new tab"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <ExternalLink size={18} />
+                  <ExternalLink size={18} className="group-hover:rotate-45 transition-transform duration-200" />
                   <span>View Resume</span>
-                </a>
+                </motion.a>
               )}
             </motion.div>
 
@@ -99,35 +103,54 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               {profile.github && (
-                <a
+                <motion.a
                   href={profile.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 glass rounded-lg hover:bg-white/10 transition-all duration-200 hover:scale-110 group"
+                  className="p-3 glass rounded-lg hover:bg-white/10 transition-all duration-200 group"
                   aria-label="GitHub"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <FaGithub size={24} className="group-hover:text-blue-400 transition-colors duration-200" />
-                </a>
+                </motion.a>
               )}
               {profile.linkedin && (
-                <a
+                <motion.a
                   href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 glass rounded-lg hover:bg-white/10 transition-all duration-200 hover:scale-110 group"
+                  className="p-3 glass rounded-lg hover:bg-white/10 transition-all duration-200 group"
                   aria-label="LinkedIn"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <FaLinkedin size={24} className="group-hover:text-blue-400 transition-colors duration-200" />
-                </a>
+                </motion.a>
+              )}
+              {profile.instagram && (
+                <motion.a
+                  href={profile.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 glass rounded-lg hover:bg-white/10 transition-all duration-200 group"
+                  aria-label="Instagram"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaInstagram size={24} className="group-hover:text-blue-400 transition-colors duration-200" />
+                </motion.a>
               )}
               {profile.email && (
-                <a
+                <motion.a
                   href={`mailto:${profile.email}`}
-                  className="p-3 glass rounded-lg hover:bg-white/10 transition-all duration-200 hover:scale-110 group"
+                  className="p-3 glass rounded-lg hover:bg-white/10 transition-all duration-200 group"
                   aria-label="Email"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Mail size={24} className="group-hover:text-blue-400 transition-colors duration-200" />
-                </a>
+                </motion.a>
               )}
             </motion.div>
           </div>

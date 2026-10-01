@@ -71,9 +71,10 @@ const Experience = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="flex items-start space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
+                  whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                  className="flex items-start space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 hover:shadow-md transition-all duration-300 group/item"
                 >
-                  <div className="p-2 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg text-blue-400 flex-shrink-0">
+                  <div className="p-2 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg text-blue-400 flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300">
                     {activity.icon}
                   </div>
                   <div>

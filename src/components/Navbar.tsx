@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, FileText } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { profile } from '../data/profile';
 
@@ -37,8 +37,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg py-4 border-b border-white/10' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled 
+          ? 'glass shadow-lg shadow-blue-500/5 py-3 border-b border-white/10 backdrop-blur-xl' 
+          : 'bg-transparent py-5 backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto px-6 lg:px-8">
@@ -106,6 +108,20 @@ const Navbar = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 <FaLinkedin size={20} />
+              </motion.a>
+            )}
+            {profile.instagram && (
+              <motion.a
+                href={profile.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors duration-200"
+                aria-label="Instagram"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+              >
+                <FaInstagram size={20} />
               </motion.a>
             )}
             {profile.resume && (
@@ -179,6 +195,17 @@ const Navbar = () => {
                       aria-label="LinkedIn"
                     >
                       <FaLinkedin size={20} />
+                    </a>
+                  )}
+                  {profile.instagram && (
+                    <a
+                      href={profile.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-white transition-colors duration-200"
+                      aria-label="Instagram"
+                    >
+                      <FaInstagram size={20} />
                     </a>
                   )}
                   {profile.resume && (

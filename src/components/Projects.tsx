@@ -39,8 +39,9 @@ const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`glass rounded-xl overflow-hidden group hover:bg-white/10 transition-all duration-300 cursor-pointer ${
-                project.isFeatured ? 'ring-2 ring-blue-500/50' : ''
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className={`glass rounded-xl overflow-hidden group hover:bg-white/10 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer ${
+                project.isFeatured ? 'ring-2 ring-blue-500/50 hover:ring-blue-400/60' : ''
               }`}
               onClick={() => setSelectedProject(project)}
             >
@@ -87,10 +88,10 @@ const Projects = () => {
                         e.stopPropagation();
                         window.open(project.githubUrl, '_blank');
                       }}
-                      className="flex items-center space-x-1 text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-1 text-sm text-gray-400 hover:text-white transition-all duration-200 group/btn"
                       aria-label="View on GitHub"
                     >
-                      <Code size={16} />
+                      <Code size={16} className="group-hover/btn:scale-110 transition-transform duration-200" />
                       <span>Code</span>
                     </button>
                   )}
@@ -100,17 +101,20 @@ const Projects = () => {
                         e.stopPropagation();
                         window.open(project.liveUrl, '_blank');
                       }}
-                      className="flex items-center space-x-1 text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-1 text-sm text-gray-400 hover:text-white transition-all duration-200 group/btn"
                       aria-label="View live demo"
                     >
-                      <ExternalLink size={16} />
+                      <ExternalLink size={16} className="group-hover/btn:scale-110 transition-transform duration-200" />
                       <span>Demo</span>
                     </button>
                   )}
                   <button
-                    className="ml-auto text-sm text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                    className="ml-auto text-sm text-blue-400 hover:text-blue-300 transition-colors duration-200 group/arrow"
                   >
-                    View Details →
+                    <span className="inline-flex items-center">
+                      View Details 
+                      <span className="inline-block group-hover/arrow:translate-x-1 transition-transform duration-200">→</span>
+                    </span>
                   </button>
                 </div>
               </div>

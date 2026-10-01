@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Send, MapPin } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { profile } from '../data/profile';
 import type { ContactFormData } from '../types';
 
@@ -79,6 +79,12 @@ const Contact = () => {
       label: 'LinkedIn',
       value: new URL(profile.linkedin).hostname + new URL(profile.linkedin).pathname,
       link: profile.linkedin
+    },
+    profile.instagram && {
+      icon: <FaInstagram className="w-5 h-5" />,
+      label: 'Instagram',
+      value: new URL(profile.instagram).hostname + new URL(profile.instagram).pathname,
+      link: profile.instagram
     },
     profile.location && {
       icon: <MapPin className="w-5 h-5" />,
@@ -186,7 +192,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 bg-white/5 border ${
                     errors.name ? 'border-red-500' : 'border-white/10'
-                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors duration-200`}
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200`}
                   placeholder="Your name"
                 />
                 {errors.name && (
@@ -206,7 +212,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 bg-white/5 border ${
                     errors.email ? 'border-red-500' : 'border-white/10'
-                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors duration-200`}
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200`}
                   placeholder="name@example.com"
                 />
                 {errors.email && (
@@ -226,7 +232,7 @@ const Contact = () => {
                   rows={5}
                   className={`w-full px-4 py-3 bg-white/5 border ${
                     errors.message ? 'border-red-500' : 'border-white/10'
-                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors duration-200 resize-none`}
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none`}
                   placeholder="Tell me about your project or inquiry..."
                 />
                 {errors.message && (
@@ -234,13 +240,15 @@ const Contact = () => {
                 )}
               </div>
 
-              <button
+              <motion.button
                 type="submit"
-                className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200"
+                className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200 group"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Send size={18} />
+                <Send size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
                 <span>Send Message</span>
-              </button>
+              </motion.button>
 
               <p className="text-xs text-gray-500 text-center">
                 Note: Form validation only. Email service integration required for message delivery.

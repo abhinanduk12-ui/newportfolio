@@ -37,6 +37,7 @@ export interface ProfileData {
   location: string;
   github: string;
   linkedin: string;
+  instagram?: string;
   resume?: string;
 }
 
